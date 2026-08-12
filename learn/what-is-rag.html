@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- ==============================
+         CONCEPT INFORMATION
+         ============================== -->
+    <!-- PAGE TITLE: What Is RAG? Retrieval-Augmented Generation Explained -->
+    <!-- SLUG: what-is-rag -->
+    <!-- CATEGORY: Generative AI -->
+    
+    <!-- SEO -->
+    <title>What Is RAG? Retrieval-Augmented Generation Explained | OverviewBrief</title>
+    <meta name="description" content="Retrieval-Augmented Generation (RAG) combines AI text generation with real-time information retrieval to produce more accurate, up-to-date responses. Learn how RAG works in simple terms.">
+    <link rel="canonical" href="https://overviewbrief.com/learn/what-is-rag.html">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="What Is RAG? Retrieval-Augmented Generation Explained | OverviewBrief">
+    <meta property="og:description" content="Learn how Retrieval-Augmented Generation makes AI responses more accurate by combining search with generation. Simple explanation with examples.">
+    <meta property="og:url" content="https://overviewbrief.com/learn/what-is-rag.html">
+    <meta property="og:image" content="https://overviewbrief.com/images/og-image.jpg">
+    <meta property="og:type" content="article">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="What Is RAG? Retrieval-Augmented Generation Explained | OverviewBrief">
+    <meta name="twitter:description" content="Learn how Retrieval-Augmented Generation makes AI responses more accurate by combining search with generation.">
+    <meta name="twitter:image" content="https://overviewbrief.com/images/og-image.jpg">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "What Is RAG? Retrieval-Augmented Generation Explained",
+        "description": "Retrieval-Augmented Generation (RAG) combines AI text generation with real-time information retrieval to produce more accurate, up-to-date responses.",
+        "datePublished": "2026-08-12",
+        "dateModified": "2026-08-12",
+        "author": {
+            "@type": "Organization",
+            "name": "OverviewBrief"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "OverviewBrief",
+            "url": "https://overviewbrief.com"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://overviewbrief.com/learn/what-is-rag.html"
+        },
+        "about": {
+            "@type": "Thing",
+            "name": "Retrieval-Augmented Generation"
+        }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What does RAG stand for?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "RAG stands for Retrieval-Augmented Generation. It's a technique that combines information retrieval with text generation to produce more accurate AI responses."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How is RAG different from a regular LLM?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A regular LLM only uses knowledge from its training data, which has a cutoff date. RAG enhances the LLM by allowing it to search external sources for current, relevant information before generating a response."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why does RAG matter?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "RAG matters because it reduces AI hallucinations by grounding responses in real, retrievable data. It also allows AI systems to access up-to-date information beyond their training cutoff date."
+                }
+            }
+        ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://overviewbrief.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Learn AI",
+                "item": "https://overviewbrief.com/learn.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Generative AI",
+                "item": "https://overviewbrief.com/learn.html?category=generative-ai"
+            },
+            {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "What Is RAG?"
+            }
+        ]
+    }
+    </script>
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/svg+xml" href="../favicon/favicon.svg">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header class="site-header">
+        <nav class="primary-nav" aria-label="Primary navigation">
+            <div class="nav-container">
+                <a href="../index.html" class="logo-link" aria-label="OverviewBrief Home">
+                    <img src="../images/logo.png" alt="OverviewBrief Logo" class="logo" width="180" height="36">
+                </a>
+                
+                <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="primary-nav-list" aria-label="Toggle navigation menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                
+                <ul id="primary-nav-list" class="nav-list" aria-hidden="true">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="../news.html" class="nav-link">AI News</a></li>
+                    <li><a href="../learn.html" class="nav-link active">Learn AI</a></li>
+                    <li><a href="../about.html" class="nav-link">About</a></li>
+                </ul>
+                
+                <div class="social-links">
+                    <a href="https://www.instagram.com/overviewbrief.ai/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="OverviewBrief on Instagram">
+                        <svg class="social-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a href="https://www.twitter.com/overviewbrief" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="OverviewBrief on X">
+                        <svg class="social-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <main id="main-content">
+        <article class="concept-article">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumbs" aria-label="Breadcrumb">
+                <ol>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="../learn.html">Learn AI</a></li>
+                    <li><a href="../learn.html?category=generative-ai">Generative AI</a></li>
+                    <li>What Is RAG?</li>
+                </ol>
+            </nav>
+            
+            <!-- Concept Header -->
+            <header class="concept-header">
+                <span class="category-tag">Generative AI</span>
+                <h1>What Is Retrieval-Augmented Generation (RAG)?</h1>
+            </header>
+            
+            <!-- ==============================
+                 SHORT ANSWER
+                 ============================== -->
+            <div class="short-answer">
+                <h2>Short Answer</h2>
+                <p>Retrieval-Augmented Generation (RAG) is a technique that makes AI responses more accurate by combining two steps: first, it searches for relevant information from external sources (like a database or the internet), and then it uses that information to generate a response. Think of it as giving an AI the ability to fact-check itself in real-time before answering your question.</p>
+            </div>
+            
+            <!-- ==============================
+                 MAIN CONTENT
+                 ============================== -->
+            <div class="concept-content">
+                
+                <h2>What Is RAG?</h2>
+                <p>RAG stands for Retrieval-Augmented Generation. It's an approach that enhances large language models (LLMs) by connecting them to external knowledge sources. Instead of relying solely on what the model learned during training, RAG allows the AI to pull in current, relevant information from specified sources before generating its response.</p>
+                <p>The key insight behind RAG is that traditional LLMs have a knowledge cutoff date — they only know what was in their training data. RAG solves this by giving the model access to fresh information whenever it needs to answer a question.</p>
+                
+                <h2>How Does RAG Work?</h2>
+                <p>RAG works in two main stages:</p>
+                <ol>
+                    <li><strong>Retrieval:</strong> When a user asks a question, the system first searches through a knowledge base (which could be documents, a database, or even the web) to find the most relevant information. This is done using semantic search — meaning it looks for meaning, not just keyword matches.</li>
+                    <li><strong>Generation:</strong> The retrieved information is then fed to the LLM along with the original question. The model uses this context to generate a response that's grounded in the actual retrieved data, rather than relying purely on its training memory.</li>
+                </ol>
+                <p>This process happens in real-time, making the response both accurate and current.</p>
+                
+                <h2>Why Does RAG Matter?</h2>
+                <p>RAG matters for several important reasons:</p>
+                <ul>
+                    <li><strong>Reduces hallucinations:</strong> By grounding responses in retrieved facts, RAG significantly reduces the likelihood of the AI making things up.</li>
+                    <li><strong>Keeps information current:</strong> RAG can access up-to-date information, meaning the AI isn't stuck with a knowledge cutoff date.</li>
+                    <li><strong>Increases trust:</strong> Users can verify the sources that the AI used to generate its response.</li>
+                    <li><strong>Domain-specific accuracy:</strong> Organizations can connect RAG systems to their own private documents, creating AI assistants that are experts in their specific field.</li>
+                </ul>
+                
+                <h2>Real-World Applications</h2>
+                <p>RAG is used in many practical applications today:</p>
+                <ul>
+                    <li><strong>Customer support chatbots</strong> that can answer questions based on a company's actual documentation and policies.</li>
+                    <li><strong>Research assistants</strong> that can search through academic papers and provide cited answers.</li>
+                    <li><strong>Legal AI tools</strong> that retrieve relevant case law before generating legal analysis.</li>
+                    <li><strong>Medical information systems</strong> that ground their responses in verified medical literature.</li>
+                    <li><strong>Enterprise knowledge bases</strong> where employees can ask questions and get answers drawn from internal documents.</li>
+                </ul>
+                
+                <h2>Common Misconceptions</h2>
+                <p><strong>Misconception:</strong> RAG is just a search engine connected to ChatGPT.</p>
+                <p><strong>Reality:</strong> RAG is more sophisticated than simple search. It uses semantic understanding to find the most relevant information and integrates it seamlessly into the generation process. The retrieval step understands context and nuance, not just keywords.</p>
+                <p><strong>Misconception:</strong> RAG eliminates all AI hallucinations.</p>
+                <p><strong>Reality:</strong> While RAG significantly reduces hallucinations, it doesn't eliminate them entirely. The quality of the retrieval system and the underlying LLM both affect the final output. If the retrieval returns irrelevant information, the generation can still go wrong.</p>
+            </div>
+            
+            <!-- ==============================
+                 SIMPLE EXPLANATION
+                 ============================== -->
+            <div class="simple-explanation">
+                <h2>In Simple Terms</h2>
+                <p>Imagine you're taking an open-book exam. Without RAG, an AI is like taking the exam from memory alone — it can only answer based on what it learned during training. With RAG, it's like being allowed to look things up in the textbook before writing each answer. The AI can find the relevant pages, read them, and then write a response based on that current, accurate information. This makes its answers much more reliable.</p>
+            </div>
+            
+            <!-- ==============================
+                 ANALOGY / EXAMPLE
+                 ============================== -->
+            <div class="analogy-box">
+                <h3>A Helpful Analogy</h3>
+                <p>Think of a librarian helping you with research. You ask the librarian a specific question. Instead of answering from memory alone, the librarian:</p>
+                <ol>
+                    <li>Goes to the shelves and finds the most relevant books and articles (retrieval)</li>
+                    <li>Reads through the relevant sections (processing)</li>
+                    <li>Comes back and gives you an answer based on what they just read (generation)</li>
+                </ol>
+                <p>That's essentially what RAG does — it's an AI system that knows how to look things up before answering, rather than relying solely on what it remembers from training.</p>
+            </div>
+            
+            <!-- ==============================
+                 FAQ
+                 ============================== -->
+            <div class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <h3>What does RAG stand for?</h3>
+                    <p>RAG stands for Retrieval-Augmented Generation. The name describes exactly what it does: it augments the generation process with retrieved information.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>How is RAG different from a regular LLM?</h3>
+                    <p>A regular LLM only uses knowledge from its training data, which has a cutoff date. RAG enhances the LLM by allowing it to search external sources for current, relevant information before generating a response. This means RAG-powered systems can provide more accurate and up-to-date answers.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Does RAG require special hardware?</h3>
+                    <p>RAG can run on standard cloud infrastructure. The main requirements are storage for the knowledge base and compute for running the retrieval and generation steps. Many cloud AI services now offer RAG as a built-in feature, making it accessible without specialized hardware.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Can RAG work with any LLM?</h3>
+                    <p>Yes, RAG is a technique that can work with most LLMs. The retrieval component is separate from the generation component, so you can pair different retrieval systems with different language models depending on your needs.</p>
+                </div>
+            </div>
+            
+            <!-- ==============================
+                 RELATED CONCEPTS
+                 ============================== -->
+            <div class="related-concepts">
+                <h2>Related Concepts</h2>
+                <div class="related-links">
+                    <a href="what-is-an-llm.html" class="related-link">What Is an LLM?</a>
+                    <a href="what-are-ai-agents.html" class="related-link">What Are AI Agents?</a>
+                </div>
+            </div>
+            
+            <!-- Final CTA -->
+            <div class="concept-cta">
+                <p>Ready to explore more AI concepts explained simply?</p>
+                <a href="../learn.html" class="btn btn-primary">Explore More AI Concepts</a>
+            </div>
+        </article>
+    </main>
+    
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="../images/logo.png" alt="OverviewBrief" class="footer-logo" width="150" height="30">
+                    <p class="footer-tagline">THE AI DEVELOPMENTS THAT ACTUALLY MATTER.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Content</h4>
+                        <ul>
+                            <li><a href="../news.html">AI News</a></li>
+                            <li><a href="../learn.html">Learn AI</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="../about.html">About</a></li>
+                            <li><a href="../privacy.html">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="https://www.instagram.com/overviewbrief.ai/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                            <li><a href="https://www.twitter.com/overviewbrief" target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 OverviewBrief. Built by <a href="[AXINITY WEBSITE URL]" target="_blank" rel="noopener noreferrer">Axinity Systems</a>.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="../js/main.js"></script>
+</body>
+</html>
