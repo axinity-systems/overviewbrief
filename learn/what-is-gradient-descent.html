@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- ==============================
+         CONCEPT INFORMATION
+         ============================== -->
+    <!-- PAGE TITLE: Gradient Descent Explained -->
+    <!-- SLUG: what-is-gradient-descent -->
+    <!-- CATEGORY: Machine Learning -->
+    
+    <!-- SEO -->
+    <title>What Is Gradient Descent? | OverviewBrief</title>
+    <meta name="description" content="Gradient descent is the algorithm that helps AI models learn from mistakes. Learn how it works, why it matters, and how it powers machine learning.">
+    <link rel="canonical" href="https://overviewbrief.netlify.app/learn/what-is-gradient-descent.html">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="What Is Gradient Descent? | OverviewBrief">
+    <meta property="og:description" content="Gradient descent is the algorithm that helps AI models learn from mistakes. Learn how it works, why it matters, and how it powers machine learning.">
+    <meta property="og:url" content="https://overviewbrief.netlify.app/learn/what-is-gradient-descent.html">
+    <meta property="og:image" content="https://overviewbrief.netlify.app/images/og-image.jpg">
+    <meta property="og:type" content="article">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="What Is Gradient Descent? | OverviewBrief">
+    <meta name="twitter:description" content="Gradient descent is the algorithm that helps AI models learn from mistakes. Learn how it works, why it matters, and how it powers machine learning.">
+    <meta name="twitter:image" content="https://overviewbrief.netlify.app/images/og-image.jpg">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "What Is Gradient Descent?",
+        "description": "Gradient descent is the algorithm that helps AI models learn from mistakes. Learn how it works, why it matters, and how it powers machine learning.",
+        "datePublished": "2026-08-13",
+        "dateModified": "2026-08-13",
+        "author": {
+            "@type": "Organization",
+            "name": "OverviewBrief"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "OverviewBrief",
+            "url": "https://overviewbrief.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://overviewbrief.netlify.app/learn/what-is-gradient-descent.html"
+        },
+        "about": {
+            "@type": "Thing",
+            "name": "Gradient Descent"
+        }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is gradient descent a machine learning model?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. Gradient descent is an optimization algorithm. It is a method used to train models by adjusting their parameters to reduce error."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does gradient descent change the training data?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. It changes the model's parameters based on what it learns from the training data."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why does gradient descent take multiple steps?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Because the algorithm usually doesn't know the perfect parameters immediately. It gradually improves them through repeated updates."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is a loss function?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A loss function measures how wrong a model's predictions are. Gradient descent uses the loss to determine how the model should change."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is gradient descent only used for neural networks?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. Gradient descent can be used to optimize many different machine learning models. It is particularly important for training neural networks."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does gradient descent always find the perfect answer?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. It depends on the model, data, optimization method, and settings such as the learning rate. It aims to find parameters that minimize the loss, but that doesn't guarantee the absolute global minimum."
+                }
+            }
+        ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://overviewbrief.netlify.app/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Learn AI",
+                "item": "https://overviewbrief.netlify.app/learn.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Machine Learning",
+                "item": "https://overviewbrief.netlify.app/learn.html?category=machine-learning"
+            },
+            {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Gradient Descent"
+            }
+        ]
+    }
+    </script>
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/svg+xml" href="../favicon/favicon.svg">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header class="site-header">
+        <nav class="primary-nav" aria-label="Primary navigation">
+            <div class="nav-container">
+                <a href="index.html" class="logo-link" aria-label="OverviewBrief Home">
+                    <img src="../images/logo.png" alt="OverviewBrief Logo" class="logo" width="180" height="36">
+                </a>
+                
+                <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="primary-nav-list" aria-label="Toggle navigation menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                
+                <ul id="primary-nav-list" class="nav-list" aria-hidden="true">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="../news.html" class="nav-link">AI News</a></li>
+                    <li><a href="../learn.html" class="nav-link active">Learn AI</a></li>
+                    <li><a href="../about.html" class="nav-link">About</a></li>
+                </ul>
+                
+                <div class="social-links">
+                    <a href="https://www.instagram.com/overviewbrief.ai/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="OverviewBrief on Instagram">
+                        <svg class="social-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a href="https://www.twitter.com/overviewbrief" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="OverviewBrief on X">
+                        <svg class="social-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <main id="main-content">
+        <article class="concept-article">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumbs" aria-label="Breadcrumb">
+                <ol>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="../learn.html">Learn AI</a></li>
+                    <li><a href="../learn.html?category=machine-learning">Machine Learning</a></li>
+                    <li>Gradient Descent</li>
+                </ol>
+            </nav>
+            
+            <!-- Concept Header -->
+            <header class="concept-header">
+                <span class="category-tag">Machine Learning</span>
+                <h1>What Is Gradient Descent?</h1>
+            </header>
+            
+            <!-- ==============================
+                 SHORT ANSWER
+                 ============================== -->
+            <div class="short-answer">
+                <h2>Short Answer</h2>
+                <p>Gradient descent is an algorithm used by machine learning models to improve their predictions. It works by repeatedly changing the model's parameters in the direction that reduces its error. Imagine standing on a hill in the dark and trying to reach the lowest point — you feel which direction slopes downward, take a small step, and repeat. That's essentially gradient descent: look at which direction makes the error smaller, take a step, and keep going until you reach a low point.</p>
+            </div>
+            
+            <!-- ==============================
+                 MAIN CONTENT
+                 ============================== -->
+            <div class="concept-content">
+                
+                <h2>What Is Gradient Descent?</h2>
+                <p>When a machine learning model makes a prediction, it will usually be wrong to some degree. For example, imagine a model trying to predict house prices. At first, its predictions might be terrible. The model needs a way to adjust itself so that its future predictions become better.</p>
+                <p>This is where gradient descent comes in. The model has parameters — numbers that control how it makes predictions. Gradient descent changes these numbers little by little to reduce the model's error.</p>
+                <p>The "descent" part is important. Machine learning models often use a loss function to measure how wrong their predictions are. You can imagine this loss as the height of a hill: high point = lots of error, low point = little error, bottom of the valley = very low error. Gradient descent tries to move the model toward a lower point on this landscape.</p>
+                
+                <h2>How Does Gradient Descent Work?</h2>
+                <p>Gradient descent follows a simple cycle:</p>
+                <ol>
+                    <li><strong>Make a prediction:</strong> The model uses its current parameters to make predictions.</li>
+                    <li><strong>Measure the error:</strong> A loss function calculates how far the predictions are from the correct answers.</li>
+                    <li><strong>Find the direction:</strong> The algorithm determines which direction would reduce the error.</li>
+                    <li><strong>Take a small step:</strong> The model changes its parameters in that direction.</li>
+                    <li><strong>Repeat:</strong> The process happens again and again until the model reaches a point where the error is low enough.</li>
+                </ol>
+                <p>Think of the error landscape as a valley. If you're somewhere on either side of the valley, gradient descent tries to figure out which way leads downhill and moves in that direction.</p>
+                
+                <h2>What Is the Learning Rate?</h2>
+                <p>The learning rate controls how big each step is. Imagine you're walking down a mountain. If your steps are too small, you'll eventually reach the bottom, but it could take forever. If your steps are too large, you might jump past the lowest point and bounce around the valley instead of settling down.</p>
+                <ul>
+                    <li><strong>Small learning rate:</strong> Safer, but learning can be slow.</li>
+                    <li><strong>Large learning rate:</strong> Faster, but the model can overshoot the best solution.</li>
+                    <li><strong>Good learning rate:</strong> Large enough to make progress, but small enough to converge toward a good solution.</li>
+                </ul>
+                <p>This is one of the important hyperparameters engineers have to choose when training models.</p>
+                
+                <h2>What Does "Gradient" Mean?</h2>
+                <p>Here's where the name starts sounding scarier than it actually is. A gradient tells you which direction the error increases most quickly. So if you're standing on a hill, the gradient basically tells you: "The ground gets steeper in THAT direction."</p>
+                <p>But gradient descent wants to reduce the error. So it moves in the opposite direction of the gradient.</p>
+                <p>In other words: gradient → tells you which way is uphill. Gradient descent → walks the other way.</p>
+                
+                <h2>Why Does Gradient Descent Matter?</h2>
+                <p>Gradient descent is one of the fundamental ideas behind modern machine learning. It gives models a practical way to learn from their mistakes. Instead of someone manually telling the model exactly how every parameter should change, gradient descent allows the model to gradually adjust its parameters based on its errors.</p>
+                <ul>
+                    <li><strong>Enables learning from mistakes:</strong> Models can automatically improve their predictions without human intervention.</li>
+                    <li><strong>Scales to large models:</strong> It is used to train many types of machine learning models, including neural networks with millions of parameters.</li>
+                    <li><strong>Practical and efficient:</strong> Without optimization algorithms such as gradient descent, training large machine learning models would be dramatically more difficult.</li>
+                </ul>
+                
+                <h2>Real-World Applications</h2>
+                <p>Gradient descent is used wherever machine learning models need to be trained. Here are some common applications:</p>
+                <ul>
+                    <li><strong>Neural Networks</strong> — Gradient descent is the primary algorithm used to train deep learning models for image recognition, language translation, and more.</li>
+                    <li><strong>Linear Regression</strong> — It optimizes the coefficients in regression models to minimize prediction error.</li>
+                    <li><strong>Logistic Regression</strong> — It helps classification models find the best decision boundary between categories.</li>
+                    <li><strong>Recommendation Systems</strong> — It fine-tunes the parameters that power personalized content suggestions.</li>
+                </ul>
+                
+                <h2>What Happens If Gradient Descent Goes Wrong?</h2>
+                <p>Gradient descent isn't magic. The way it is configured matters.</p>
+                <ul>
+                    <li><strong>Learning rate too small:</strong> The model may improve extremely slowly.</li>
+                    <li><strong>Learning rate too large:</strong> The model may jump over good solutions and fail to settle down.</li>
+                    <li><strong>Poor optimization landscape:</strong> The model may get stuck in a region that isn't the best possible solution.</li>
+                    <li><strong>Noisy updates:</strong> When training with batches of data, individual updates can sometimes point in slightly different directions, causing the optimization path to bounce around.</li>
+                </ul>
+                <p>The goal is not necessarily to find the absolute lowest point imaginable. In machine learning, finding a sufficiently good set of parameters that produces low error is often what matters.</p>
+                
+                <h2>Common Misconceptions</h2>
+                <p><strong>Misconception:</strong> Gradient descent always finds the perfect answer.</p>
+                <p><strong>Reality:</strong> It depends on the model, data, optimization method, and settings such as the learning rate. It aims to find parameters that minimize the loss, but that doesn't guarantee the absolute global minimum.</p>
+                <p><strong>Misconception:</strong> Gradient descent is only used for neural networks.</p>
+                <p><strong>Reality:</strong> Gradient descent can be used to optimize many different machine learning models. It is particularly important for training neural networks, but it's also used in linear regression, logistic regression, and other algorithms.</p>
+            </div>
+            
+            <!-- ==============================
+                 SIMPLE EXPLANATION
+                 ============================== -->
+            <div class="simple-explanation">
+                <h2>In Simple Terms</h2>
+                <p>Imagine you're blindfolded and dropped somewhere on a mountain. Your goal is to reach the lowest point. You can't see the mountain, so you do something simple: feel the slope → figure out which way goes down → take a small step → repeat. That's gradient descent.</p>
+                <p>The mountain represents the loss landscape. Your position represents the model's current parameters. The height represents the model's error. The steps represent parameter updates. And the bottom represents a point where the model's error is relatively low.</p>
+            </div>
+            
+            <!-- ==============================
+                 ANALOGY / EXAMPLE
+                 ============================== -->
+            <div class="analogy-box">
+                <h3>A Helpful Analogy</h3>
+                <p>Imagine you're trying to tune a radio until the music sounds as clear as possible. You turn the dial slightly one way and the music gets worse. You turn it the other way and the music gets better. So you keep moving in the direction that improves the sound. Eventually, you find a setting where the music sounds really good.</p>
+                <p>Gradient descent works similarly. Instead of adjusting a radio dial, it adjusts a model's parameters. Instead of listening for better music, it measures lower error. And instead of making one giant adjustment, it usually makes many small adjustments.</p>
+            </div>
+            
+            <!-- ==============================
+                 FAQ
+                 ============================== -->
+            <div class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <h3>Is gradient descent a machine learning model?</h3>
+                    <p>No. Gradient descent is an optimization algorithm. It is a method used to train models by adjusting their parameters to reduce error.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Does gradient descent change the training data?</h3>
+                    <p>No. It changes the model's parameters based on what it learns from the training data.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Why does gradient descent take multiple steps?</h3>
+                    <p>Because the algorithm usually doesn't know the perfect parameters immediately. It gradually improves them through repeated updates.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>What is a loss function?</h3>
+                    <p>A loss function measures how wrong a model's predictions are. Gradient descent uses the loss to determine how the model should change.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Is gradient descent only used for neural networks?</h3>
+                    <p>No. Gradient descent can be used to optimize many different machine learning models. It is particularly important for training neural networks.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Does gradient descent always find the perfect answer?</h3>
+                    <p>No. It depends on the model, data, optimization method, and settings such as the learning rate. It aims to find parameters that minimize the loss, but that doesn't guarantee the absolute global minimum.</p>
+                </div>
+            </div>
+            
+            <!-- ==============================
+                 RELATED CONCEPTS
+                 ============================== -->
+            <!-- Final CTA -->
+            <div class="concept-cta">
+                <p>Ready to explore more AI concepts explained simply?</p>
+                <a href="../learn.html" class="btn btn-primary">Explore More AI Concepts</a>
+            </div>
+        </article>
+    </main>
+    
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <p class="footer-tagline">THE AI DEVELOPMENTS THAT ACTUALLY MATTER.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Content</h4>
+                        <ul>
+                            <li><a href="../news.html">AI News</a></li>
+                            <li><a href="../learn.html">Learn AI</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="../about.html">About</a></li>
+                            <li><a href="../privacy.html">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="https://www.instagram.com/overviewbrief.ai/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                            <li><a href="https://www.twitter.com/overviewbrief" target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 OverviewBrief. Built by <a href="https://axinitysystems.netlify.app" target="_blank" rel="noopener noreferrer">Axinity Systems</a>.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="../js/main.js"></script>
+</body>
+</html>
