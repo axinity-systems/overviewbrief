@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /learn/_concept-template.html
 
-Sitemap: https://overviewbrief.netlify.app/sitemap.xml
+Sitemap: https:www.overviewbrief.com/sitemap.xml
