@@ -1,6 +1,6 @@
 /* ==========================================================================
    OverviewBrief - Main Stylesheet
-   Premium AI Publication Design
+   Premium AI Publication Design (Updated with mobile overlay)
    ========================================================================== */
 
 /* Custom Properties */
@@ -48,6 +48,10 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+body.nav-open {
+    overflow: hidden;
 }
 
 img {
@@ -61,7 +65,6 @@ a {
     text-decoration: none;
     transition: color 0.2s ease;
 }
-
 a:hover {
     color: var(--color-accent-light);
 }
@@ -78,7 +81,6 @@ a:hover {
     z-index: 1000;
     font-weight: 600;
 }
-
 .skip-link:focus {
     top: 16px;
 }
@@ -90,7 +92,9 @@ a:hover {
     padding: 0 24px;
 }
 
-/* Navigation */
+/* ============================================================
+   HEADER & NAVIGATION (Updated)
+   ============================================================ */
 .site-header {
     position: sticky;
     top: 0;
@@ -104,11 +108,12 @@ a:hover {
 .nav-container {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: var(--nav-height);
+    position: relative;
 }
 
 .logo-link {
@@ -116,18 +121,18 @@ a:hover {
     align-items: center;
     flex-shrink: 0;
 }
-
 .logo {
     height: 32px;
     width: auto;
 }
 
-.nav-list {
+/* --- Desktop Navigation --- */
+.nav-list-desktop {
     display: flex;
     list-style: none;
-    gap: 8px;
+    gap: 4px;
+    align-items: center;
 }
-
 .nav-link {
     color: var(--color-gray-400);
     padding: 8px 16px;
@@ -135,20 +140,20 @@ a:hover {
     font-size: 0.9375rem;
     font-weight: 500;
     transition: color 0.2s ease, background-color 0.2s ease;
+    white-space: nowrap;
 }
-
 .nav-link:hover,
 .nav-link.active {
     color: var(--color-text);
     background-color: var(--color-gray-800);
 }
 
+/* --- Desktop Social Links --- */
 .social-links {
     display: flex;
-    gap: 8px;
+    gap: 6px;
     align-items: center;
 }
-
 .social-link {
     display: flex;
     align-items: center;
@@ -159,18 +164,16 @@ a:hover {
     color: var(--color-gray-400);
     transition: color 0.2s ease, background-color 0.2s ease;
 }
-
 .social-link:hover {
     color: var(--color-text);
     background-color: var(--color-gray-800);
 }
-
 .social-icon {
     width: 18px;
     height: 18px;
 }
 
-/* Mobile Nav Toggle */
+/* --- Mobile Toggle (Hamburger) --- */
 .mobile-nav-toggle {
     display: none;
     flex-direction: column;
@@ -178,35 +181,113 @@ a:hover {
     background: none;
     border: none;
     cursor: pointer;
-    padding: 8px;
-    z-index: 101;
+    padding: 10px 8px;
+    z-index: 1000;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
-
-.hamburger-line {
+.mobile-nav-toggle .hamburger-line {
     display: block;
-    width: 24px;
-    height: 2px;
+    width: 26px;
+    height: 2.5px;
     background-color: var(--color-text);
+    border-radius: 2px;
     transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: center;
 }
-
 .mobile-nav-toggle[aria-expanded="true"] .hamburger-line:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
+    transform: translateY(7.5px) rotate(45deg);
 }
-
 .mobile-nav-toggle[aria-expanded="true"] .hamburger-line:nth-child(2) {
     opacity: 0;
+    transform: scaleX(0);
 }
-
 .mobile-nav-toggle[aria-expanded="true"] .hamburger-line:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
+    transform: translateY(-7.5px) rotate(-45deg);
 }
 
-/* Sections */
+/* --- Mobile Overlay (Full-Screen Menu) --- */
+.mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(1, 3, 10, 0.98);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+    z-index: 999;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    overflow-y: auto;
+    padding: 40px 24px;
+}
+.mobile-overlay.is-open {
+    transform: translateX(0);
+    pointer-events: auto;
+}
+.mobile-overlay .nav-link {
+    font-size: 1.5rem;
+    padding: 10px 24px;
+    white-space: normal;
+    text-align: center;
+    width: 100%;
+    max-width: 280px;
+    color: var(--color-gray-400);
+    border-radius: var(--radius-sm);
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+.mobile-overlay .nav-link:hover,
+.mobile-overlay .nav-link.active {
+    color: var(--color-text);
+    background-color: var(--color-gray-800);
+}
+.mobile-overlay .mobile-social-row {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+    justify-content: center;
+}
+.mobile-overlay .mobile-social-row .social-link {
+    width: 44px;
+    height: 44px;
+    background-color: var(--color-gray-800);
+    border-radius: 50%;
+    color: var(--color-gray-400);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mobile-overlay .mobile-social-row .social-link:hover {
+    background-color: var(--color-gray-700);
+    color: var(--color-text);
+}
+
+/* --- Responsive: Hide desktop nav, show toggle + overlay --- */
+@media (max-width: 820px) {
+    .mobile-nav-toggle {
+        display: flex;
+    }
+    .nav-list-desktop {
+        display: none;
+    }
+    .social-links {
+        display: none;
+    }
+}
+
+/* ============================================================
+   SECTIONS & COMPONENTS (All your existing styles)
+   ============================================================ */
 .section {
     padding: 80px 0;
 }
-
 .section-header {
     margin-bottom: 48px;
     display: flex;
@@ -215,20 +296,17 @@ a:hover {
     flex-wrap: wrap;
     gap: 16px;
 }
-
 .section-title,
 .section-header h2 {
     font-size: 2rem;
     font-weight: 700;
     letter-spacing: -0.02em;
 }
-
 .section-subtitle {
     color: var(--color-gray-400);
     font-size: 1.125rem;
     margin-top: 8px;
 }
-
 .view-all {
     font-size: 0.9375rem;
     font-weight: 500;
@@ -239,13 +317,11 @@ a:hover {
     padding: 120px 0 100px;
     text-align: center;
 }
-
 .hero-container {
     max-width: 800px;
     margin: 0 auto;
     padding: 0 24px;
 }
-
 .hero-title {
     font-size: 3.5rem;
     font-weight: 800;
@@ -254,7 +330,6 @@ a:hover {
     margin-bottom: 24px;
     color: var(--color-text);
 }
-
 .hero-subtitle {
     font-size: 1.25rem;
     color: var(--color-gray-400);
@@ -263,7 +338,6 @@ a:hover {
     margin-left: auto;
     margin-right: auto;
 }
-
 .hero-cta {
     display: flex;
     gap: 16px;
@@ -284,42 +358,37 @@ a:hover {
     cursor: pointer;
     transition: all 0.2s ease;
     text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    min-height: 52px;
 }
-
 .btn-primary {
     background-color: var(--color-accent);
     color: var(--color-text);
     border-color: var(--color-accent);
 }
-
 .btn-primary:hover {
     background-color: var(--color-accent-light);
     border-color: var(--color-accent-light);
     color: var(--color-text);
 }
-
 .btn-secondary {
     background-color: transparent;
     color: var(--color-text);
     border-color: var(--color-gray-600);
 }
-
 .btn-secondary:hover {
     border-color: var(--color-gray-400);
     color: var(--color-text);
 }
-
 .btn-outline {
     background-color: transparent;
     color: var(--color-text);
     border-color: var(--color-gray-600);
 }
-
 .btn-outline:hover {
     border-color: var(--color-accent);
     color: var(--color-accent);
 }
-
 .center-cta {
     text-align: center;
     margin-top: 48px;
@@ -331,7 +400,6 @@ a:hover {
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 32px;
 }
-
 .news-card {
     background-color: var(--color-gray-900);
     border: 1px solid var(--color-gray-800);
@@ -339,12 +407,10 @@ a:hover {
     overflow: hidden;
     transition: border-color 0.2s ease, transform 0.2s ease;
 }
-
 .news-card:hover {
     border-color: var(--color-gray-700);
     transform: translateY(-2px);
 }
-
 .news-card-embed {
     background-color: var(--color-gray-800);
     min-height: 400px;
@@ -352,21 +418,18 @@ a:hover {
     align-items: center;
     justify-content: center;
 }
-
 .embed-placeholder {
     color: var(--color-gray-500);
     font-size: 0.875rem;
     text-align: center;
     padding: 24px;
 }
-
 .news-card-meta {
     display: flex;
     align-items: center;
     gap: 12px;
     padding: 20px 20px 0;
 }
-
 .category-tag {
     display: inline-block;
     padding: 4px 12px;
@@ -378,12 +441,10 @@ a:hover {
     text-transform: uppercase;
     letter-spacing: 0.03em;
 }
-
 .news-card-meta time {
     color: var(--color-gray-500);
     font-size: 0.875rem;
 }
-
 .news-card-title {
     padding: 12px 20px 24px;
     font-size: 1.125rem;
@@ -396,7 +457,6 @@ a:hover {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 24px;
 }
-
 .concept-card {
     background-color: var(--color-gray-900);
     border: 1px solid var(--color-gray-800);
@@ -408,32 +468,28 @@ a:hover {
     transition: border-color 0.2s ease, transform 0.2s ease;
     text-decoration: none;
     color: var(--color-text);
+    -webkit-tap-highlight-color: transparent;
 }
-
 .concept-card:hover {
     border-color: var(--color-accent);
     transform: translateY(-2px);
     color: var(--color-text);
 }
-
 .concept-card h3 {
     font-size: 1.25rem;
     font-weight: 700;
 }
-
 .concept-card p {
     color: var(--color-gray-400);
     font-size: 0.9375rem;
     line-height: 1.7;
     flex-grow: 1;
 }
-
 .learn-more {
     color: var(--color-accent);
     font-size: 0.9375rem;
     font-weight: 600;
 }
-
 .concept-card:hover .learn-more {
     color: var(--color-accent-light);
 }
@@ -444,7 +500,6 @@ a:hover {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 16px;
 }
-
 .topic-card {
     display: flex;
     align-items: center;
@@ -459,8 +514,8 @@ a:hover {
     text-align: center;
     transition: all 0.2s ease;
     text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
 }
-
 .topic-card:hover {
     border-color: var(--color-accent);
     color: var(--color-text);
@@ -476,23 +531,19 @@ a:hover {
     margin: 0 24px;
     padding: 64px 24px;
 }
-
 .social-cta .container {
     max-width: 600px;
 }
-
 .social-cta h2 {
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 16px;
 }
-
 .social-cta p {
     color: var(--color-gray-400);
     margin-bottom: 32px;
     font-size: 1.0625rem;
 }
-
 .social-cta-links {
     display: flex;
     gap: 16px;
@@ -506,37 +557,31 @@ a:hover {
     padding: 64px 0 32px;
     margin-top: 80px;
 }
-
 .footer-content {
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 48px;
     margin-bottom: 48px;
 }
-
 .footer-brand {
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
-
 .footer-logo {
     height: 28px;
     width: auto;
 }
-
 .footer-tagline {
     color: var(--color-gray-500);
     font-size: 0.8125rem;
     letter-spacing: 0.05em;
 }
-
 .footer-links {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 32px;
 }
-
 .footer-column h4 {
     font-size: 0.875rem;
     font-weight: 600;
@@ -545,39 +590,32 @@ a:hover {
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
-
 .footer-column ul {
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
-
 .footer-column a {
     color: var(--color-gray-500);
     font-size: 0.9375rem;
     transition: color 0.2s ease;
 }
-
 .footer-column a:hover {
     color: var(--color-text);
 }
-
 .footer-bottom {
     border-top: 1px solid var(--color-gray-800);
     padding-top: 24px;
     text-align: center;
 }
-
 .footer-bottom p {
     color: var(--color-gray-500);
     font-size: 0.875rem;
 }
-
 .footer-bottom a {
     color: var(--color-gray-400);
 }
-
 .footer-bottom a:hover {
     color: var(--color-text);
 }
@@ -588,7 +626,6 @@ a:hover {
     font-size: 0.875rem;
     color: var(--color-gray-500);
 }
-
 .breadcrumbs ol {
     list-style: none;
     display: flex;
@@ -596,22 +633,18 @@ a:hover {
     align-items: center;
     flex-wrap: wrap;
 }
-
 .breadcrumbs li {
     display: flex;
     align-items: center;
     gap: 8px;
 }
-
 .breadcrumbs li:not(:last-child)::after {
     content: '→';
     color: var(--color-gray-600);
 }
-
 .breadcrumbs a {
     color: var(--color-gray-400);
 }
-
 .breadcrumbs a:hover {
     color: var(--color-text);
 }
@@ -621,21 +654,18 @@ a:hover {
     padding: 80px 0 48px;
     text-align: center;
 }
-
 .learn-header h1 {
     font-size: 3rem;
     font-weight: 800;
     letter-spacing: -0.03em;
     margin-bottom: 16px;
 }
-
 .learn-header p {
     color: var(--color-gray-400);
     font-size: 1.125rem;
     max-width: 600px;
     margin: 0 auto;
 }
-
 .filter-bar {
     display: flex;
     gap: 8px;
@@ -643,7 +673,6 @@ a:hover {
     margin-bottom: 48px;
     justify-content: center;
 }
-
 .filter-btn {
     padding: 8px 20px;
     border: 1px solid var(--color-gray-700);
@@ -655,18 +684,15 @@ a:hover {
     cursor: pointer;
     transition: all 0.2s ease;
 }
-
 .filter-btn:hover {
     border-color: var(--color-gray-500);
     color: var(--color-text);
 }
-
 .filter-btn.active {
     background-color: var(--color-accent);
     border-color: var(--color-accent);
     color: var(--color-text);
 }
-
 .concept-library {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -679,15 +705,12 @@ a:hover {
     margin: 0 auto;
     padding: 0 24px 80px;
 }
-
 .concept-header {
     margin-bottom: 40px;
 }
-
 .concept-header .category-tag {
     margin-bottom: 16px;
 }
-
 .concept-header h1 {
     font-size: 2.5rem;
     font-weight: 800;
@@ -695,7 +718,6 @@ a:hover {
     line-height: 1.2;
     margin-bottom: 24px;
 }
-
 .short-answer {
     background-color: var(--color-gray-900);
     border: 1px solid var(--color-gray-800);
@@ -704,7 +726,6 @@ a:hover {
     padding: 24px;
     margin-bottom: 40px;
 }
-
 .short-answer h2 {
     font-size: 1rem;
     color: var(--color-accent-light);
@@ -712,46 +733,39 @@ a:hover {
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
-
 .short-answer p {
     font-size: 1.125rem;
     line-height: 1.8;
     color: var(--color-gray-200);
 }
-
 .concept-content h2 {
     font-size: 1.75rem;
     font-weight: 700;
     margin: 40px 0 16px;
     color: var(--color-text);
 }
-
 .concept-content h3 {
     font-size: 1.25rem;
     font-weight: 600;
     margin: 32px 0 12px;
     color: var(--color-gray-200);
 }
-
 .concept-content p {
     font-size: 1.0625rem;
     line-height: 1.8;
     color: var(--color-gray-300);
     margin-bottom: 16px;
 }
-
 .concept-content ul,
 .concept-content ol {
     margin: 16px 0;
     padding-left: 24px;
     color: var(--color-gray-300);
 }
-
 .concept-content li {
     margin-bottom: 8px;
     line-height: 1.7;
 }
-
 .simple-explanation {
     background-color: rgba(51, 128, 247, 0.05);
     border: 1px solid rgba(51, 128, 247, 0.2);
@@ -759,17 +773,14 @@ a:hover {
     padding: 28px;
     margin: 40px 0;
 }
-
 .simple-explanation h2 {
     color: var(--color-accent-light);
     font-size: 1.25rem;
     margin-top: 0;
 }
-
 .simple-explanation p {
     color: var(--color-gray-200);
 }
-
 .analogy-box {
     background-color: var(--color-gray-900);
     border: 1px solid var(--color-gray-700);
@@ -777,57 +788,46 @@ a:hover {
     padding: 28px;
     margin: 40px 0;
 }
-
 .analogy-box h3 {
     color: var(--color-highlight);
     font-size: 1.125rem;
     margin-top: 0;
 }
-
 .faq-section {
     margin: 48px 0;
 }
-
 .faq-section h2 {
     margin-bottom: 24px;
 }
-
 .faq-item {
     border-bottom: 1px solid var(--color-gray-800);
     padding: 20px 0;
 }
-
 .faq-item:first-child {
     border-top: 1px solid var(--color-gray-800);
 }
-
 .faq-item h3 {
     font-size: 1.125rem;
     margin: 0 0 8px;
 }
-
 .faq-item p {
     margin: 0;
 }
-
 .related-concepts {
     margin: 48px 0;
     padding: 32px;
     background-color: var(--color-gray-900);
     border-radius: var(--radius-lg);
 }
-
 .related-concepts h2 {
     margin-top: 0;
     margin-bottom: 20px;
 }
-
 .related-links {
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
 }
-
 .related-link {
     display: inline-block;
     padding: 10px 20px;
@@ -837,12 +837,10 @@ a:hover {
     font-size: 0.9375rem;
     transition: all 0.2s ease;
 }
-
 .related-link:hover {
     background-color: var(--color-accent);
     color: var(--color-text);
 }
-
 .concept-cta {
     text-align: center;
     margin-top: 48px;
@@ -850,7 +848,6 @@ a:hover {
     background-color: var(--color-gray-900);
     border-radius: var(--radius-lg);
 }
-
 .concept-cta p {
     color: var(--color-gray-400);
     margin-bottom: 20px;
@@ -861,58 +858,49 @@ a:hover {
     padding: 80px 0 48px;
     text-align: center;
 }
-
 .about-header h1 {
     font-size: 3rem;
     font-weight: 800;
     letter-spacing: -0.03em;
 }
-
 .about-content {
     max-width: 720px;
     margin: 0 auto;
     padding: 0 24px 80px;
 }
-
 .about-content h2 {
     font-size: 1.75rem;
     font-weight: 700;
     margin: 48px 0 16px;
 }
-
 .about-content p {
     font-size: 1.0625rem;
     line-height: 1.8;
     color: var(--color-gray-300);
     margin-bottom: 16px;
 }
-
 .about-pillars {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 24px;
     margin: 32px 0;
 }
-
 .pillar-card {
     background-color: var(--color-gray-900);
     border: 1px solid var(--color-gray-800);
     border-radius: var(--radius-lg);
     padding: 28px;
 }
-
 .pillar-card h3 {
     font-size: 1.25rem;
     font-weight: 700;
     margin-bottom: 12px;
     color: var(--color-accent-light);
 }
-
 .pillar-card p {
     font-size: 0.9375rem;
     margin: 0;
 }
-
 .axinity-section {
     margin-top: 48px;
     padding: 32px;
@@ -921,7 +909,6 @@ a:hover {
     border-radius: var(--radius-lg);
     text-align: center;
 }
-
 .axinity-section h2 {
     margin-top: 0;
 }
@@ -932,38 +919,32 @@ a:hover {
     margin: 0 auto;
     padding: 0 24px 80px;
 }
-
 .privacy-content h1 {
     font-size: 2.5rem;
     font-weight: 800;
     margin-bottom: 8px;
 }
-
 .last-updated {
     color: var(--color-gray-500);
     font-size: 0.875rem;
     margin-bottom: 40px;
 }
-
 .privacy-content h2 {
     font-size: 1.5rem;
     font-weight: 700;
     margin: 40px 0 16px;
 }
-
 .privacy-content p {
     font-size: 1rem;
     line-height: 1.8;
     color: var(--color-gray-300);
     margin-bottom: 16px;
 }
-
 .privacy-content ul {
     margin: 16px 0;
     padding-left: 24px;
     color: var(--color-gray-300);
 }
-
 .privacy-content li {
     margin-bottom: 8px;
 }
@@ -977,11 +958,9 @@ a:hover {
     text-align: center;
     padding: 80px 24px;
 }
-
 .error-content {
     max-width: 500px;
 }
-
 .error-code {
     font-size: 6rem;
     font-weight: 800;
@@ -989,19 +968,16 @@ a:hover {
     line-height: 1;
     margin-bottom: 16px;
 }
-
 .error-content h1 {
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 16px;
 }
-
 .error-content p {
     color: var(--color-gray-400);
     margin-bottom: 32px;
     font-size: 1.0625rem;
 }
-
 .error-cta {
     display: flex;
     gap: 16px;
@@ -1014,27 +990,23 @@ a:hover {
     padding: 80px 0 48px;
     text-align: center;
 }
-
 .news-header h1 {
     font-size: 3rem;
     font-weight: 800;
     letter-spacing: -0.03em;
     margin-bottom: 16px;
 }
-
 .news-header p {
     color: var(--color-gray-400);
     font-size: 1.125rem;
     max-width: 600px;
     margin: 0 auto;
 }
-
 .news-feed {
     max-width: 900px;
     margin: 0 auto;
     padding: 0 24px 80px;
 }
-
 .news-item {
     background-color: var(--color-gray-900);
     border: 1px solid var(--color-gray-800);
@@ -1042,32 +1014,27 @@ a:hover {
     overflow: hidden;
     margin-bottom: 32px;
 }
-
 .news-item-meta {
     display: flex;
     align-items: center;
     gap: 12px;
     padding: 24px 24px 0;
 }
-
 .news-item-meta time {
     color: var(--color-gray-500);
     font-size: 0.875rem;
 }
-
 .news-item-title {
     padding: 12px 24px;
     font-size: 1.25rem;
     font-weight: 600;
 }
-
 .news-item-description {
     padding: 0 24px 12px;
     color: var(--color-gray-400);
     font-size: 0.9375rem;
     line-height: 1.7;
 }
-
 .instagram-embed {
     background-color: var(--color-gray-800);
     min-height: 500px;
@@ -1078,136 +1045,62 @@ a:hover {
     font-size: 0.875rem;
 }
 
-/* Responsive Design */
+/* ============================================================
+   RESPONSIVE DESIGN
+   ============================================================ */
 @media (max-width: 820px) {
-    .mobile-nav-toggle {
-        display: flex;
+    :root {
+        --nav-height: 64px;
     }
-
-    .nav-list {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(1, 3, 10, 0.98);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 28px;
-        padding: 40px 24px;
-        transform: translateX(100%);
-        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 101;
-        overflow-y: auto;
-    }
-
-    /* The class that JS toggles to open the menu */
-    .nav-list.is-open {
-        transform: translateX(0);
-    }
-
-    .nav-link {
-        font-size: 1.5rem;
-        padding: 10px 24px;
-        white-space: normal;
-        text-align: center;
-        width: 100%;
-        max-width: 280px;
-    }
-
-    /* Hide desktop social icons, show them inside the overlay instead */
-    .social-links {
-        display: none;
-    }
-
-    /* Mobile social row (inside the overlay) */
-    .nav-list .mobile-social-row {
-        display: flex;
-        gap: 16px;
-        margin-top: 16px;
-        justify-content: center;
-        list-style: none;
-    }
-
-    .nav-list .mobile-social-row .social-link {
-        width: 44px;
-        height: 44px;
-        background-color: var(--color-gray-800);
-        border-radius: 50%;
-        color: var(--color-gray-400);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .nav-list .mobile-social-row .social-link:hover {
-        background-color: var(--color-gray-700);
-        color: var(--color-text);
-    }
-}
     
     .hero-title {
         font-size: 2.25rem;
     }
-    
     .hero-subtitle {
         font-size: 1.0625rem;
     }
-    
     .section {
         padding: 48px 0;
     }
-    
     .section-header {
         flex-direction: column;
         align-items: flex-start;
     }
-    
     .section-title,
     .section-header h2 {
         font-size: 1.5rem;
     }
-    
     .concept-cards,
     .news-grid {
         grid-template-columns: 1fr;
     }
-    
     .footer-content {
         grid-template-columns: 1fr;
     }
-    
     .footer-links {
         grid-template-columns: 1fr;
     }
-    
     .concept-header h1 {
         font-size: 1.75rem;
     }
-    
     .learn-header h1,
     .news-header h1,
     .about-header h1 {
         font-size: 2rem;
     }
-    
     .error-code {
         font-size: 4rem;
     }
-    
     .social-cta {
         margin: 0 16px;
         padding: 48px 16px;
     }
+}
 
 @media (min-width: 769px) and (max-width: 1024px) {
     .hero-title {
         font-size: 2.75rem;
     }
-    
     .concept-cards,
     .news-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1233,10 +1126,7 @@ a:hover {
     border-width: 0;
 }
 
-body.nav-open {
-    overflow: hidden;
-}
-
+/* Touch-friendly taps */
 .btn,
 .topic-card,
 .concept-card,
