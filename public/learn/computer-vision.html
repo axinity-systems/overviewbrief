@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- ==============================
+         CONCEPT INFORMATION
+         ============================== -->
+    <!-- PAGE TITLE: Computer Vision Explained -->
+    <!-- SLUG: computer-vision -->
+    <!-- CATEGORY: Computer Vision -->
+    
+    <!-- SEO -->
+    <title>What Is Computer Vision? | OverviewBrief</title>
+    <meta name="description" content="Learn what computer vision is, how it works, and why it matters. A simple, jargon-free explanation of computer vision in AI with real-world applications and examples.">
+    <link rel="canonical" href="https://overviewbrief.com/learn/computer-vision.html">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="What Is Computer Vision? | OverviewBrief">
+    <meta property="og:description" content="Learn what computer vision is, how it works, and why it matters. A simple, jargon-free explanation of computer vision in AI with real-world applications and examples.">
+    <meta property="og:url" content="https://overviewbrief.com/learn/computer-vision.html">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="What Is Computer Vision? | OverviewBrief">
+    <meta name="twitter:description" content="Computer vision explained simply. Learn how AI systems see and interpret visual information.">
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "What Is Computer Vision?",
+        "description": "Learn what computer vision is, how it works, and why it matters. A simple, jargon-free explanation of computer vision in AI with real-world applications and examples.",
+        "datePublished": "2026-08-20",
+        "dateModified": "2026-08-20",
+        "author": {
+            "@type": "Organization",
+            "name": "OverviewBrief"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "OverviewBrief",
+            "url": "https://overviewbrief.com"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://overviewbrief.com/learn/computer-vision.html"
+        },
+        "about": {
+            "@type": "Thing",
+            "name": "Computer Vision"
+        }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is computer vision a type of AI?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Computer vision is a field of artificial intelligence focused specifically on enabling computers to interpret visual information such as images and videos."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the difference between computer vision and image recognition?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Image recognition is one task within computer vision. It typically involves identifying what an image contains, while computer vision covers a much broader range of tasks, including object detection, image segmentation, facial recognition, tracking, pose estimation, and visual inspection."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does computer vision always require deep learning?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. Traditional computer vision techniques existed long before modern deep learning and used methods based on manually designed features and algorithms. However, deep learning has become the dominant approach for many modern computer vision tasks because it can learn complex visual patterns directly from data."
+                }
+            }
+        ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://overviewbrief.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Learn AI",
+                "item": "https://overviewbrief.com/learn.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Computer Vision",
+                "item": "https://overviewbrief.com/learn.html?category=computer-vision"
+            },
+            {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Computer Vision"
+            }
+        ]
+    }
+    </script>
+    
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header class="site-header">
+        <nav class="primary-nav" aria-label="Primary navigation">
+            <div class="nav-container">
+                <a href="/" class="logo-link" aria-label="OverviewBrief Home">
+                    <img src="../images/logo.png" alt="OverviewBrief Logo" class="logo" width="180" height="36">
+                </a>
+                
+                <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="primary-nav-list" aria-label="Toggle navigation menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                
+                <ul id="primary-nav-list" class="nav-list" aria-hidden="true">
+                    <li><a href="/" class="nav-link">Home</a></li>
+                    <li><a href="../news.html" class="nav-link">AI News</a></li>
+                    <li><a href="../learn.html" class="nav-link active">Learn AI</a></li>
+                    <li><a href="../about.html" class="nav-link">About</a></li>
+                </ul>
+                
+                <div class="social-links">
+                    <a href="https://www.instagram.com/overviewbrief.ai/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="OverviewBrief on Instagram">
+                        <svg class="social-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a href="https://twitter.com/overviewbrief" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="OverviewBrief on X">
+                        <svg class="social-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <main id="main-content">
+        <article class="concept-article">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumbs" aria-label="Breadcrumb">
+                <ol>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="../learn.html">Learn AI</a></li>
+                    <li><a href="../learn.html?category=computer-vision">Computer Vision</a></li>
+                    <li>Computer Vision</li>
+                </ol>
+            </nav>
+            
+            <!-- Concept Header -->
+            <header class="concept-header">
+                <span class="category-tag">Computer Vision</span>
+                <h1>What Is Computer Vision?</h1>
+            </header>
+            
+            <!-- ==============================
+                 SHORT ANSWER
+                 ============================== -->
+            <div class="short-answer">
+                <h2>Short Answer</h2>
+                <p>Computer vision is a field of AI that enables computers to interpret and understand visual information such as images and videos. It uses machine learning and neural networks to identify objects, recognize patterns, detect changes, and extract useful information from what a camera sees.</p>
+            </div>
+            
+            <!-- ==============================
+                 MAIN CONTENT
+                 ============================== -->
+            <div class="concept-content">
+                
+                <h2>What Is Computer Vision?</h2>
+                <p>Computer vision is essentially the technology that helps machines <strong>"see."</strong> Instead of treating an image as a collection of pixels, a computer vision system learns to recognize meaningful patterns in those pixels—such as faces, cars, plants, text, or objects.</p>
+                <p>The goal is not simply to capture an image, but to understand what is happening inside it. This allows AI systems to make decisions based on visual information, from detecting a disease on a crop leaf to helping an autonomous vehicle understand the road ahead.</p>
+                
+                <h2>How Does Computer Vision Work?</h2>
+                <p>A typical computer vision system processes visual information through several stages:</p>
+                <ol>
+                    <li><strong>Image or Video Input:</strong> A camera, smartphone, satellite, medical scanner, or other sensor captures visual data.</li>
+                    <li><strong>Preprocessing:</strong> The image may be resized, normalized, enhanced, or otherwise prepared so the AI model can process it effectively.</li>
+                    <li><strong>Feature Detection:</strong> A neural network identifies visual patterns such as edges, shapes, textures, colors, and increasingly complex structures.</li>
+                    <li><strong>Understanding and Prediction:</strong> The trained model uses those patterns to perform a task such as classifying an image, detecting objects, recognizing a face, or identifying a specific region.</li>
+                    <li><strong>Output:</strong> The system produces a useful result—for example, "this is a cat," draws a box around a pedestrian, reads text from a document, or identifies a diseased plant.</li>
+                </ol>
+                <p>Modern computer vision is heavily powered by deep learning. Convolutional Neural Networks (CNNs) played a major role in advancing image recognition, while newer vision transformers and multimodal AI models can handle increasingly complex visual tasks.</p>
+                
+                <h2>Why Does Computer Vision Matter?</h2>
+                <p>Computers can process enormous amounts of visual information much faster and more consistently than humans in many situations. Computer vision turns cameras and images into <strong>data that AI systems can reason about and act on.</strong></p>
+                <ul>
+                    <li><strong>Automation:</strong> Visual inspection and monitoring can be performed automatically at large scale.</li>
+                    <li><strong>Pattern Recognition:</strong> AI can identify visual patterns that may be difficult or time-consuming for humans to spot.</li>
+                    <li><strong>Real-Time Decision Making:</strong> Systems can analyze camera feeds and respond to objects or events as they happen.</li>
+                </ul>
+                
+                <h2>Real-World Applications</h2>
+                <p>Computer vision is already used across many industries:</p>
+                <ul>
+                    <li><strong>Autonomous Vehicles</strong> — Detects roads, pedestrians, vehicles, traffic signs, and other objects to help vehicles understand their surroundings.</li>
+                    <li><strong>Healthcare</strong> — Analyzes medical images such as X-rays, CT scans, and MRI images to assist professionals in detecting abnormalities.</li>
+                    <li><strong>Agriculture</strong> — Identifies plant diseases, weeds, crop conditions, and other visual indicators using cameras and drones.</li>
+                    <li><strong>Security and Surveillance</strong> — Detects objects, events, and people in video footage.</li>
+                    <li><strong>Manufacturing</strong> — Inspects products for defects and monitors production lines.</li>
+                    <li><strong>Retail</strong> — Enables applications such as cashierless checkout, inventory monitoring, and visual product search.</li>
+                    <li><strong>Document Processing</strong> — Uses optical character recognition (OCR) to extract text from images, scanned documents, and forms.</li>
+                </ul>
+                
+                <h2>Common Misconceptions</h2>
+                <p><strong>Misconception:</strong> Computer vision means a computer literally sees an image the way a human does.</p>
+                <p><strong>Reality:</strong> A computer does not experience vision like a person. It processes numerical representations of visual data and uses learned patterns to make predictions or decisions about what that data contains.</p>
+            </div>
+            
+            <!-- ==============================
+                 SIMPLE EXPLANATION
+                 ============================== -->
+            <div class="simple-explanation">
+                <h2>In Simple Terms</h2>
+                <p>Imagine giving a computer a photograph and asking, <strong>"What am I looking at?"</strong> Computer vision is the technology that helps it answer.</p>
+                <p>Instead of just storing the photograph, the AI can analyze it and say, "There is a dog, a person, and a bicycle." Give it a video, and it can track those objects as they move. Give it a picture of a plant leaf, and it might identify signs of disease.</p>
+                <p>So, in the simplest terms: <strong>computer vision teaches computers how to understand pictures and videos.</strong></p>
+            </div>
+            
+            <!-- ==============================
+                 ANALOGY / EXAMPLE
+                 ============================== -->
+            <div class="analogy-box">
+                <h3>A Helpful Analogy</h3>
+                <p>Think of computer vision like teaching someone to recognize animals.</p>
+                <p>You show them thousands of pictures of cats and dogs. Over time, they learn that certain shapes, textures, ears, faces, and body structures tend to appear in cats, while other patterns appear in dogs.</p>
+                <p>A computer vision model learns in a similar way. Instead of consciously thinking about "ears" or "fur," the neural network learns mathematical patterns from visual examples. When it encounters a new image, it uses those learned patterns to make its best prediction.</p>
+            </div>
+            
+            <!-- ==============================
+                 FAQ
+                 ============================== -->
+            <div class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <h3>Is computer vision a type of AI?</h3>
+                    <p>Yes. Computer vision is a field of artificial intelligence focused specifically on enabling computers to interpret visual information such as images and videos.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>What is the difference between computer vision and image recognition?</h3>
+                    <p>Image recognition is one task within computer vision. It typically involves identifying what an image contains, while computer vision covers a much broader range of tasks, including object detection, image segmentation, facial recognition, tracking, pose estimation, and visual inspection.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Does computer vision always require deep learning?</h3>
+                    <p>No. Traditional computer vision techniques existed long before modern deep learning and used methods based on manually designed features and algorithms. However, deep learning has become the dominant approach for many modern computer vision tasks because it can learn complex visual patterns directly from data.</p>
+                </div>
+            </div>
+            
+            <!-- ==============================
+                 RELATED CONCEPTS
+                 ============================== -->
+            <div class="related-concepts">
+                <h2>Related Concepts</h2>
+                <div class="related-links">
+                    <a href="what-is-machine-learning.html" class="related-link">Machine Learning</a>
+                    <a href="what-is-deep-learning.html" class="related-link">Deep Learning</a>
+                    <a href="what-is-neural-networks.html" class="related-link">Neural Networks</a>
+                </div>
+            </div>
+            
+            <!-- Final CTA -->
+            <div class="concept-cta">
+                <p>Ready to explore more AI concepts explained simply?</p>
+                <a href="../learn.html" class="btn btn-primary">Explore More AI Concepts</a>
+            </div>
+        </article>
+    </main>
+    
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="../images/logo.png" alt="OverviewBrief" class="footer-logo" width="150" height="30">
+                    <p class="footer-tagline">THE AI DEVELOPMENTS THAT ACTUALLY MATTER.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Content</h4>
+                        <ul>
+                            <li><a href="../news.html">AI News</a></li>
+                            <li><a href="../learn.html">Learn AI</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="../about.html">About</a></li>
+                            <li><a href="../privacy.html">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="https://www.instagram.com/overviewbrief.ai/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                            <li><a href="https://twitter.com/overviewbrief" target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 OverviewBrief. Built by <a href="https://axinitysystems.netlify.app" target="_blank" rel="noopener noreferrer">Axinity Systems</a>.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="../js/main.js"></script>
+</body>
+</html>
