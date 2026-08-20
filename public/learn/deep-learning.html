@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- ==============================
+         CONCEPT INFORMATION
+         ============================== -->
+    <!-- PAGE TITLE: Deep Learning Explained -->
+    <!-- SLUG: deep-learning -->
+    <!-- CATEGORY: Machine Learning -->
+    
+    <!-- SEO -->
+    <title>What Is Deep Learning? | OverviewBrief</title>
+    <meta name="description" content="Learn what deep learning is, how it works, and why it matters. A simple, jargon-free explanation of deep learning in AI with real-world applications and examples.">
+    <link rel="canonical" href="https://overviewbrief.com/learn/deep-learning.html">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="What Is Deep Learning? | OverviewBrief">
+    <meta property="og:description" content="Learn what deep learning is, how it works, and why it matters. A simple, jargon-free explanation of deep learning in AI with real-world applications and examples.">
+    <meta property="og:url" content="https://overviewbrief.com/learn/deep-learning.html">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="What Is Deep Learning? | OverviewBrief">
+    <meta name="twitter:description" content="Deep learning explained simply. Learn how neural networks with many layers power modern AI systems.">
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "What Is Deep Learning?",
+        "description": "Learn what deep learning is, how it works, and why it matters. A simple, jargon-free explanation of deep learning in AI with real-world applications and examples.",
+        "datePublished": "2026-08-20",
+        "dateModified": "2026-08-20",
+        "author": {
+            "@type": "Organization",
+            "name": "OverviewBrief"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "OverviewBrief",
+            "url": "https://overviewbrief.com"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://overviewbrief.com/learn/deep-learning.html"
+        },
+        "about": {
+            "@type": "Thing",
+            "name": "Deep Learning"
+        }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is deep learning the same as neural networks?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Not exactly. Neural networks are the models used to perform deep learning, while deep learning generally refers to using neural networks with multiple layers to learn complex representations."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does deep learning always require huge amounts of data?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, but large datasets are often extremely valuable for training large deep learning models. Techniques such as transfer learning can allow models to achieve useful results with much less task-specific data."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why does deep learning require so much computing power?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Training deep neural networks involves performing enormous numbers of mathematical operations across potentially millions or billions of parameters. GPUs and other specialized hardware can perform many of these operations in parallel, making large-scale training much more practical."
+                }
+            }
+        ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://overviewbrief.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Learn AI",
+                "item": "https://overviewbrief.com/learn.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Machine Learning",
+                "item": "https://overviewbrief.com/learn.html?category=machine-learning"
+            },
+            {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Deep Learning"
+            }
+        ]
+    }
+    </script>
+    
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header class="site-header">
+        <nav class="primary-nav" aria-label="Primary navigation">
+            <div class="nav-container">
+                <a href="/" class="logo-link" aria-label="OverviewBrief Home">
+                    <img src="../images/logo.png" alt="OverviewBrief Logo" class="logo" width="180" height="36">
+                </a>
+                
+                <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="primary-nav-list" aria-label="Toggle navigation menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                
+                <ul id="primary-nav-list" class="nav-list" aria-hidden="true">
+                    <li><a href="/" class="nav-link">Home</a></li>
+                    <li><a href="../news.html" class="nav-link">AI News</a></li>
+                    <li><a href="../learn.html" class="nav-link active">Learn AI</a></li>
+                    <li><a href="../about.html" class="nav-link">About</a></li>
+                </ul>
+                
+                <div class="social-links">
+                    <a href="https://www.instagram.com/overviewbrief.ai/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="OverviewBrief on Instagram">
+                        <svg class="social-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a href="https://twitter.com/overviewbrief" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="OverviewBrief on X">
+                        <svg class="social-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <main id="main-content">
+        <article class="concept-article">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumbs" aria-label="Breadcrumb">
+                <ol>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="../learn.html">Learn AI</a></li>
+                    <li><a href="../learn.html?category=machine-learning">Machine Learning</a></li>
+                    <li>Deep Learning</li>
+                </ol>
+            </nav>
+            
+            <!-- Concept Header -->
+            <header class="concept-header">
+                <span class="category-tag">Machine Learning</span>
+                <h1>What Is Deep Learning?</h1>
+            </header>
+            
+            <!-- ==============================
+                 SHORT ANSWER
+                 ============================== -->
+            <div class="short-answer">
+                <h2>Short Answer</h2>
+                <p>Deep learning is a branch of machine learning that uses neural networks with many layers to learn complex patterns from large amounts of data. It powers many modern AI systems, including large language models, image recognition, speech recognition, autonomous systems, and generative AI.</p>
+            </div>
+            
+            <!-- ==============================
+                 MAIN CONTENT
+                 ============================== -->
+            <div class="concept-content">
+                
+                <h2>What Is Deep Learning?</h2>
+                <p>Deep learning is a machine learning approach built around <strong>deep neural networks</strong>—neural networks containing multiple layers that progressively transform raw data into increasingly useful representations.</p>
+                <p>Traditional machine learning often relies on humans to decide which features in the data are important. Deep learning can learn many of those features automatically. For example, when trained to recognize objects in images, a deep learning model can learn simple visual patterns in early layers and combine them into increasingly complex concepts in deeper layers.</p>
+                <p>The rapid growth of computing power, large datasets, and specialized hardware such as GPUs has made it possible to train increasingly large deep learning models. This has been a major driver behind the recent advances in AI.</p>
+                
+                <h2>How Does Deep Learning Work?</h2>
+                <p>A deep learning system generally works through several stages:</p>
+                <ol>
+                    <li><strong>Input Data:</strong> The model receives data such as images, text, audio, video, or numerical information.</li>
+                    <li><strong>Layered Processing:</strong> The data passes through many neural network layers. Each layer transforms the information and can learn different patterns or representations.</li>
+                    <li><strong>Prediction:</strong> The final layers produce an output based on what the network has learned.</li>
+                    <li><strong>Error Calculation:</strong> During training, the model compares its prediction with the expected result and calculates how far it was from the target.</li>
+                    <li><strong>Backpropagation:</strong> The error is propagated backward through the network so the model can determine how its parameters contributed to the mistake.</li>
+                    <li><strong>Optimization:</strong> An optimization algorithm, commonly a variant of gradient descent, adjusts the model's parameters to reduce future errors. Repeating this process over many training examples allows the network to gradually learn useful patterns.</li>
+                </ol>
+                <p>Different neural network architectures are suited to different problems. <strong>Convolutional neural networks (CNNs)</strong> have historically been important for computer vision, while <strong>transformers</strong> have become central to modern language models and many multimodal AI systems.</p>
+                
+                <h2>Why Does Deep Learning Matter?</h2>
+                <p>Deep learning made it practical for AI systems to learn highly complex patterns directly from large datasets, producing major improvements across many areas of artificial intelligence.</p>
+                <ul>
+                    <li><strong>Automatic Feature Learning:</strong> Models can learn useful representations from raw or minimally processed data.</li>
+                    <li><strong>High Performance:</strong> Deep neural networks can achieve extremely strong results on complex tasks when trained with suitable data and computing resources.</li>
+                    <li><strong>Generative AI:</strong> Deep learning provides the foundation for many modern systems that generate text, images, audio, video, and code.</li>
+                </ul>
+                
+                <h2>Real-World Applications</h2>
+                <p>Deep learning is used across a wide range of technologies:</p>
+                <ul>
+                    <li><strong>Generative AI</strong> — Powers models that generate text, images, audio, video, and code.</li>
+                    <li><strong>Computer Vision</strong> — Enables image classification, object detection, facial recognition, and visual understanding.</li>
+                    <li><strong>Natural Language Processing</strong> — Supports translation, summarization, question answering, text generation, and conversational AI.</li>
+                    <li><strong>Speech Recognition</strong> — Converts spoken language into text and enables voice-controlled systems.</li>
+                    <li><strong>Autonomous Vehicles and Robotics</strong> — Helps machines interpret sensor data and understand their environments.</li>
+                    <li><strong>Healthcare</strong> — Assists with medical-image analysis, biological research, and prediction tasks.</li>
+                    <li><strong>Recommendation Systems</strong> — Learns complex patterns in user behavior to recommend content or products.</li>
+                </ul>
+                
+                <h2>Common Misconceptions</h2>
+                <p><strong>Misconception:</strong> Deep learning is completely different from machine learning.</p>
+                <p><strong>Reality:</strong> Deep learning is a <strong>subset of machine learning</strong>. The key distinction is that deep learning primarily relies on neural networks with multiple layers to learn complex representations, while machine learning includes many other approaches such as decision trees, linear models, and support vector machines.</p>
+            </div>
+            
+            <!-- ==============================
+                 SIMPLE EXPLANATION
+                 ============================== -->
+            <div class="simple-explanation">
+                <h2>In Simple Terms</h2>
+                <p>Imagine teaching a computer to recognize a dog.</p>
+                <p>Instead of manually telling it every characteristic that makes something a dog, you give it thousands or millions of examples. A deep neural network gradually learns useful patterns from those examples.</p>
+                <p>Early layers might learn simple visual features such as edges and textures. Deeper layers can combine those features into shapes, body parts, and eventually complete objects.</p>
+                <p>So, <strong>deep learning is essentially machine learning that uses many layers of neural networks to learn increasingly complex patterns from data.</strong></p>
+            </div>
+            
+            <!-- ==============================
+                 ANALOGY / EXAMPLE
+                 ============================== -->
+            <div class="analogy-box">
+                <h3>A Helpful Analogy</h3>
+                <p>Imagine teaching someone to recognize a song.</p>
+                <p>First, they notice individual sounds. Then they recognize instruments and rhythms. Eventually, they can combine those pieces and identify the song itself.</p>
+                <p>Deep learning works in a similar layered way. Early layers can learn simpler patterns, while deeper layers combine those patterns into increasingly sophisticated representations.</p>
+                <p>The important difference is that the model learns these representations mathematically from data rather than being explicitly given a rulebook for what to look for.</p>
+            </div>
+            
+            <!-- ==============================
+                 FAQ
+                 ============================== -->
+            <div class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <h3>Is deep learning the same as neural networks?</h3>
+                    <p>Not exactly. Neural networks are the models used to perform deep learning, while <strong>deep learning generally refers to using neural networks with multiple layers</strong> to learn complex representations.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Does deep learning always require huge amounts of data?</h3>
+                    <p>No, but large datasets are often extremely valuable for training large deep learning models. Techniques such as transfer learning can allow models to achieve useful results with much less task-specific data.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Why does deep learning require so much computing power?</h3>
+                    <p>Training deep neural networks involves performing enormous numbers of mathematical operations across potentially millions or billions of parameters. GPUs and other specialized hardware can perform many of these operations in parallel, making large-scale training much more practical.</p>
+                </div>
+            </div>
+            
+            <!-- ==============================
+                 RELATED CONCEPTS
+                 ============================== -->
+            <div class="related-concepts">
+                <h2>Related Concepts</h2>
+                <div class="related-links">
+                    <a href="neural-networks.html" class="related-link">Neural Networks</a>
+                    <a href="machine-learning.html" class="related-link">Machine Learning</a>
+                    <a href="what-are-ai-agents.html" class="related-link">AI Agents</a>
+                </div>
+            </div>
+            
+            <!-- Final CTA -->
+            <div class="concept-cta">
+                <p>Ready to explore more AI concepts explained simply?</p>
+                <a href="../learn.html" class="btn btn-primary">Explore More AI Concepts</a>
+            </div>
+        </article>
+    </main>
+    
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="../images/logo.png" alt="OverviewBrief" class="footer-logo" width="150" height="30">
+                    <p class="footer-tagline">THE AI DEVELOPMENTS THAT ACTUALLY MATTER.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Content</h4>
+                        <ul>
+                            <li><a href="../news.html">AI News</a></li>
+                            <li><a href="../learn.html">Learn AI</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="../about.html">About</a></li>
+                            <li><a href="../privacy.html">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="https://www.instagram.com/overviewbrief.ai/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                            <li><a href="https://twitter.com/overviewbrief" target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 OverviewBrief. Built by <a href="https://axinitysystems.netlify.app" target="_blank" rel="noopener noreferrer">Axinity Systems</a>.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="../js/main.js"></script>
+</body>
+</html>

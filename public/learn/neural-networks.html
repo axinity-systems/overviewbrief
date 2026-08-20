@@ -1,0 +1,335 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- ==============================
+         CONCEPT INFORMATION
+         ============================== -->
+    <!-- PAGE TITLE: Neural Networks Explained -->
+    <!-- SLUG: neural-networks -->
+    <!-- CATEGORY: Machine Learning -->
+    
+    <!-- SEO -->
+    <title>What Are Neural Networks? | OverviewBrief</title>
+    <meta name="description" content="Learn what neural networks are, how they work, and why they matter. A simple, jargon-free explanation of neural networks in AI with real-world applications and examples.">
+    <link rel="canonical" href="https://overviewbrief.com/learn/neural-networks.html">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="What Are Neural Networks? | OverviewBrief">
+    <meta property="og:description" content="Learn what neural networks are, how they work, and why they matter. A simple, jargon-free explanation of neural networks in AI with real-world applications and examples.">
+    <meta property="og:url" content="https://overviewbrief.com/learn/neural-networks.html">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="What Are Neural Networks? | OverviewBrief">
+    <meta name="twitter:description" content="Neural networks explained simply. Learn how AI systems learn complex patterns from data.">
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "What Are Neural Networks?",
+        "description": "Learn what neural networks are, how they work, and why they matter. A simple, jargon-free explanation of neural networks in AI with real-world applications and examples.",
+        "datePublished": "2026-08-20",
+        "dateModified": "2026-08-20",
+        "author": {
+            "@type": "Organization",
+            "name": "OverviewBrief"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "OverviewBrief",
+            "url": "https://overviewbrief.com"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://overviewbrief.com/learn/neural-networks.html"
+        },
+        "about": {
+            "@type": "Thing",
+            "name": "Neural Networks"
+        }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is a neural network the same thing as machine learning?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. Neural networks are a type of machine learning model. Machine learning is the broader field, while neural networks are one family of techniques within it."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is a deep neural network?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A deep neural network is a neural network with multiple hidden layers. These additional layers allow the model to learn more complex and hierarchical patterns, which is why deep neural networks are central to modern deep learning."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why do neural networks need training?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A neural network begins with parameters that do not yet encode useful patterns for the task. Training exposes it to examples and repeatedly adjusts those parameters to reduce its errors, allowing the network to learn a useful mapping from inputs to outputs."
+                }
+            }
+        ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://overviewbrief.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Learn AI",
+                "item": "https://overviewbrief.com/learn.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Machine Learning",
+                "item": "https://overviewbrief.com/learn.html?category=machine-learning"
+            },
+            {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Neural Networks"
+            }
+        ]
+    }
+    </script>
+    
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header class="site-header">
+        <nav class="primary-nav" aria-label="Primary navigation">
+            <div class="nav-container">
+                <a href="/" class="logo-link" aria-label="OverviewBrief Home">
+                    <img src="../images/logo.png" alt="OverviewBrief Logo" class="logo" width="180" height="36">
+                </a>
+                
+                <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="primary-nav-list" aria-label="Toggle navigation menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                
+                <ul id="primary-nav-list" class="nav-list" aria-hidden="true">
+                    <li><a href="/" class="nav-link">Home</a></li>
+                    <li><a href="../news.html" class="nav-link">AI News</a></li>
+                    <li><a href="../learn.html" class="nav-link active">Learn AI</a></li>
+                    <li><a href="../about.html" class="nav-link">About</a></li>
+                </ul>
+                
+                <div class="social-links">
+                    <a href="https://www.instagram.com/overviewbrief.ai/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="OverviewBrief on Instagram">
+                        <svg class="social-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a href="https://twitter.com/overviewbrief" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="OverviewBrief on X">
+                        <svg class="social-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <main id="main-content">
+        <article class="concept-article">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumbs" aria-label="Breadcrumb">
+                <ol>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="../learn.html">Learn AI</a></li>
+                    <li><a href="../learn.html?category=machine-learning">Machine Learning</a></li>
+                    <li>Neural Networks</li>
+                </ol>
+            </nav>
+            
+            <!-- Concept Header -->
+            <header class="concept-header">
+                <span class="category-tag">Machine Learning</span>
+                <h1>What Are Neural Networks?</h1>
+            </header>
+            
+            <!-- ==============================
+                 SHORT ANSWER
+                 ============================== -->
+            <div class="short-answer">
+                <h2>Short Answer</h2>
+                <p>Neural networks are machine learning models inspired loosely by the way biological brains process information. They consist of interconnected layers of mathematical units called neurons that learn patterns from data, allowing them to perform tasks such as classification, prediction, image recognition, and language processing.</p>
+            </div>
+            
+            <!-- ==============================
+                 MAIN CONTENT
+                 ============================== -->
+            <div class="concept-content">
+                
+                <h2>What Are Neural Networks?</h2>
+                <p>A neural network is a type of machine learning model designed to learn complex relationships within data. Instead of being explicitly programmed with every rule needed to solve a problem, the network adjusts its internal parameters during training so that its outputs become increasingly accurate.</p>
+                <p>Neural networks are built from layers of artificial neurons. Each neuron receives numerical inputs, applies mathematical operations to them, and passes the resulting signal to other neurons. By connecting many of these neurons together, a network can learn increasingly complicated patterns.</p>
+                <p>Neural networks are particularly powerful when working with large amounts of complex data such as images, audio, video, and text. They form the foundation of <strong>deep learning</strong>, where models use many layers to learn hierarchical representations of information.</p>
+                
+                <h2>How Do Neural Networks Work?</h2>
+                <p>A basic neural network processes information through several stages:</p>
+                <ol>
+                    <li><strong>Input Layer:</strong> The network receives numerical data representing the information it needs to process. For an image, this could be pixel values; for text, it could be numerical representations of words or tokens.</li>
+                    <li><strong>Hidden Layers:</strong> The data passes through one or more intermediate layers. Each neuron combines its inputs using learned <strong>weights</strong>, adds a bias, and passes the result through an <strong>activation function</strong>.</li>
+                    <li><strong>Pattern Learning:</strong> During training, the network compares its prediction with the correct answer and calculates an error. An optimization process such as <strong>backpropagation with gradient descent</strong> adjusts the model's weights to reduce that error.</li>
+                    <li><strong>Output Layer:</strong> The final layer produces the network's prediction. Depending on the task, this could be a class probability, a numerical prediction, generated text, or another type of output.</li>
+                </ol>
+                <p>With multiple hidden layers, the network can learn increasingly abstract representations. For example, a vision model might learn edges in early layers, shapes and textures in later layers, and eventually recognize complete objects.</p>
+                
+                <h2>Why Do Neural Networks Matter?</h2>
+                <p>Neural networks have transformed machine learning because they can automatically learn useful representations from large and complex datasets.</p>
+                <ul>
+                    <li><strong>Complex Pattern Recognition:</strong> They can learn relationships that would be extremely difficult to describe with manually written rules.</li>
+                    <li><strong>Versatility:</strong> Similar neural-network techniques can be adapted for images, language, speech, video, time-series data, and many other types of information.</li>
+                    <li><strong>Foundation of Modern AI:</strong> Many modern AI systems, including large language models and advanced computer vision systems, are built using neural networks.</li>
+                </ul>
+                
+                <h2>Real-World Applications</h2>
+                <p>Neural networks power a huge range of modern AI applications:</p>
+                <ul>
+                    <li><strong>Image Recognition</strong> — Identifies objects, faces, scenes, and patterns in photographs and video.</li>
+                    <li><strong>Language Models</strong> — Processes and generates human language for applications such as AI assistants, translation, and text generation.</li>
+                    <li><strong>Speech Recognition</strong> — Converts spoken audio into text and helps systems understand voice commands.</li>
+                    <li><strong>Recommendation Systems</strong> — Learns user and content patterns to predict what people may want to watch, read, or purchase.</li>
+                    <li><strong>Medical Analysis</strong> — Helps analyze medical images and other complex datasets.</li>
+                    <li><strong>Autonomous Systems</strong> — Processes information from cameras and sensors to help robots, drones, and vehicles understand their environments.</li>
+                    <li><strong>Generative AI</strong> — Forms the underlying technology behind many systems that generate text, images, audio, video, and other content.</li>
+                </ul>
+                
+                <h2>Common Misconceptions</h2>
+                <p><strong>Misconception:</strong> Neural networks work exactly like the human brain.</p>
+                <p><strong>Reality:</strong> The name comes from a loose inspiration from biological neurons, but artificial neural networks are fundamentally mathematical models. They do not replicate the structure or complexity of a human brain.</p>
+            </div>
+            
+            <!-- ==============================
+                 SIMPLE EXPLANATION
+                 ============================== -->
+            <div class="simple-explanation">
+                <h2>In Simple Terms</h2>
+                <p>Think of a neural network as a giant collection of tiny mathematical decision-makers working together.</p>
+                <p>You give the network some information, such as a picture. The first layer looks for simple patterns, later layers combine those patterns into more complicated ones, and the final layer makes a prediction.</p>
+                <p>During training, the network repeatedly makes predictions, sees how wrong it was, and adjusts itself. After seeing enough examples, it becomes better at recognizing patterns in data it hasn't seen before.</p>
+                <p><strong>In short: a neural network learns how to turn inputs into useful outputs by adjusting millions or even billions of mathematical parameters.</strong></p>
+            </div>
+            
+            <!-- ==============================
+                 ANALOGY / EXAMPLE
+                 ============================== -->
+            <div class="analogy-box">
+                <h3>A Helpful Analogy</h3>
+                <p>Imagine a team of detectives investigating a crime.</p>
+                <p>The first group looks for simple clues: fingerprints, colors, shapes, or sounds. The next group combines those clues into larger patterns. Another group interprets those patterns and looks for relationships. Finally, the lead investigator combines everything and reaches a conclusion.</p>
+                <p>A neural network works in a similar layered fashion. Early layers can learn relatively simple patterns, while deeper layers combine them into increasingly complex representations before producing the final output.</p>
+            </div>
+            
+            <!-- ==============================
+                 FAQ
+                 ============================== -->
+            <div class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <h3>Is a neural network the same thing as machine learning?</h3>
+                    <p>No. Neural networks are a type of machine learning model. Machine learning is the broader field, while neural networks are one family of techniques within it.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>What is a deep neural network?</h3>
+                    <p>A deep neural network is a neural network with multiple hidden layers. These additional layers allow the model to learn more complex and hierarchical patterns, which is why deep neural networks are central to modern deep learning.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Why do neural networks need training?</h3>
+                    <p>A neural network begins with parameters that do not yet encode useful patterns for the task. Training exposes it to examples and repeatedly adjusts those parameters to reduce its errors, allowing the network to learn a useful mapping from inputs to outputs.</p>
+                </div>
+            </div>
+            
+            <!-- ==============================
+                 RELATED CONCEPTS
+                 ============================== -->
+            <div class="related-concepts">
+                <h2>Related Concepts</h2>
+                <div class="related-links">
+                    <a href="machine-learning.html" class="related-link">Machine Learning</a>
+                    <a href="what-is-deep-learning.html" class="related-link">Deep Learning</a>
+                    <a href="computer-vision.html" class="related-link">Computer Vision</a>
+                </div>
+            </div>
+            
+            <!-- Final CTA -->
+            <div class="concept-cta">
+                <p>Ready to explore more AI concepts explained simply?</p>
+                <a href="../learn.html" class="btn btn-primary">Explore More AI Concepts</a>
+            </div>
+        </article>
+    </main>
+    
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="../images/logo.png" alt="OverviewBrief" class="footer-logo" width="150" height="30">
+                    <p class="footer-tagline">THE AI DEVELOPMENTS THAT ACTUALLY MATTER.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Content</h4>
+                        <ul>
+                            <li><a href="../news.html">AI News</a></li>
+                            <li><a href="../learn.html">Learn AI</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="../about.html">About</a></li>
+                            <li><a href="../privacy.html">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="https://www.instagram.com/overviewbrief.ai/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                            <li><a href="https://twitter.com/overviewbrief" target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 OverviewBrief. Built by <a href="https://axinitysystems.netlify.app" target="_blank" rel="noopener noreferrer">Axinity Systems</a>.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="../js/main.js"></script>
+</body>
+</html>
+```
